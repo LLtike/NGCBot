@@ -161,7 +161,7 @@ class Db_Point_Server:
                         # 如果是超级管理员
                         self.add_point(wx_id=give_sender, wx_name=give_name, room_id=room_id, room_name=room_name,
                                       point=int(point))
-                        msg = f'您是尊贵的超级管理员, 本次赠送不扣除您积分[爱心]'
+                        msg = f'管理员用户, 本次赠送不扣除积分[爱心]'
                     else:
                         # 积分不足
                         msg = '自己的积分都不够还给别人送, 你牙西啊雷 ~~~~~~'

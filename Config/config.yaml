@@ -1,6 +1,6 @@
 ## 超级管理员配置
 Administrators:
-  - 'wxid_7bizfilssbwi22'
+  - 'wxid_4583335833012'
 
 ## 系统配置
 System_Config:
@@ -26,7 +26,7 @@ Push_Config:
   # 定时功能回复配置
   Key_Word:
     # 下班消息 换行用\n 支持微信表情
-    Off_Work_Msg: '下班时间到！我要下班 我要下班 我要下班 下下下！\n到点即刻下班，给老板省去水电，给自己来套保健，给老板来句操蛋，出自: #NGC660安全实验室\n速速下班！！！[旺柴]'
+    Off_Work_Msg: '下班时间到！'
 
 ## 进群关键词配置
 Room_Key_Word:

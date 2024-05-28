@@ -356,8 +356,8 @@ class Room_Msg_Dispose:
         room_name = self.Dms.query_room_name(room_id=msg.roomid)
         wx_name = self.wcf.get_alias_in_chatroom(wxid=msg.sender, roomid=msg.roomid)
         if msg.sender in admin_dicts.keys() or msg.sender in self.administrators:
-            admin_msg = f'@{wx_name}\n您是尊贵的管理员/超级管理员，本次对话不扣除积分'
-            self.wcf.send_text(msg=admin_msg, receiver=msg.roomid, aters=msg.sender)
+            #admin_msg = f'@{wx_name}\n您是尊贵的管理员/超级管理员，本次对话不扣除积分'
+            #self.wcf.send_text(msg=admin_msg, receiver=msg.roomid, aters=msg.sender)
             use_msg = f'@{wx_name}\n' + self.Ams.get_ai(question=self.handle_atMsg(msg, at_user_lists=at_user_lists))
             self.wcf.send_text(msg=use_msg, receiver=msg.roomid, aters=msg.sender)
         # 不是管理员
@@ -384,8 +384,8 @@ class Room_Msg_Dispose:
         wx_name = self.wcf.get_alias_in_chatroom(wxid=msg.sender, roomid=msg.roomid)
         # 是管理员
         if msg.sender in admin_dicts.keys() or msg.sender in self.administrators:
-            admin_msg = f'@{wx_name} 您是尊贵的管理员/超级管理员，本次查询不扣除积分'
-            self.wcf.send_text(msg=admin_msg, receiver=msg.roomid, aters=msg.sender)
+            #admin_msg = f'@{wx_name} 您是尊贵的管理员/超级管理员，本次查询不扣除积分'
+            #self.wcf.send_text(msg=admin_msg, receiver=msg.roomid, aters=msg.sender)
             use_msg = self.Ams.get_md5(content=msg.content.strip())
             self.wcf.send_text(msg=use_msg, receiver=msg.roomid, aters=msg.sender)
         # 不是管理员
@@ -411,8 +411,8 @@ class Room_Msg_Dispose:
         wx_name = self.wcf.get_alias_in_chatroom(wxid=msg.sender, roomid=msg.roomid)
         # 是管理员
         if msg.sender in admin_dicts.keys() or msg.sender in self.administrators:
-            admin_msg = f'@{wx_name} 您是尊贵的管理员/超级管理员，本次查询不扣除积分'
-            self.wcf.send_text(msg=admin_msg, receiver=msg.roomid, aters=msg.sender)
+            #admin_msg = f'@{wx_name} 您是尊贵的管理员/超级管理员，本次查询不扣除积分'
+            #self.wcf.send_text(msg=admin_msg, receiver=msg.roomid, aters=msg.sender)
             use_msg = f'@{wx_name} ' + self.Ams.get_threatbook_ip(content=msg.content.strip())
             self.wcf.send_text(msg=use_msg, receiver=msg.roomid, aters=msg.sender)
         # 不是管理员
@@ -438,8 +438,8 @@ class Room_Msg_Dispose:
         wx_name = self.wcf.get_alias_in_chatroom(wxid=msg.sender, roomid=msg.roomid)
         # 是管理员
         if msg.sender in admin_dicts.keys() or msg.sender in self.administrators:
-            admin_msg = f'@{wx_name} 您是尊贵的管理员/超级管理员，本次查询不扣除积分'
-            self.wcf.send_text(msg=admin_msg, receiver=msg.roomid, aters=msg.sender)
+            #admin_msg = f'@{wx_name} 您是尊贵的管理员/超级管理员，本次查询不扣除积分'
+            #self.wcf.send_text(msg=admin_msg, receiver=msg.roomid, aters=msg.sender)
             use_msg = f'@{wx_name} ' + self.Ams.get_portScan(content=msg.content.strip())
             self.wcf.send_text(msg=use_msg, receiver=msg.roomid, aters=msg.sender)
         # 不是管理员

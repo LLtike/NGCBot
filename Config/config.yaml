@@ -200,6 +200,10 @@ Function_Key_Word:
   Weather_Word:
     - '天气查询'
     - '查询天气'
+  # 触发热点查询关键词
+  TTLlst_Word:
+    - '热点'
+    - '今日热点'  
   # 触发舔狗日记关键词
   Dog_Word:
     - '舔狗日记'
@@ -321,6 +325,8 @@ Api_Server:
   Somd5_Md5_Api: 'https://www.somd5.com/ss.php?api={}&hash={}'
   # Cmd5解密Api配置
   Cmd5_Md5_Api:
+  #头条热榜
+  TTList_Api: 'https://apis.tianapi.com/toutiaohot/index?key={}'
   # 图片API配置
   Pic_Api:
     - 'https://api.btstu.cn/sjbz/api.php?lx=dongman&format=images&method=mobile&lx=meizi'

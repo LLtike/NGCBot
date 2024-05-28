@@ -61,6 +61,7 @@ class Api_Main_Server:
         self.Somd5_Key = config['Api_Server']['Api_Config']['Somd5_Key']
         self.Dream_Api = config['Api_Server']['Dream_Api']
         self.Port_Scan_Api = config['Api_Server']['Port_Scan_Api']
+        self.TTList_Api = config['Api_Server']['TTList_Api']
         # 星火配置
         self.Spark_url = config['Api_Server']['Ai_Config']['SparkApi']['Spark_url']
         self.Spark_ApiSecret = config['Api_Server']['Ai_Config']['SparkApi']['ApiSecret']
@@ -213,6 +214,29 @@ class Api_Main_Server:
         OutPut.outPut(f'[+]: 美女视频API接口调用成功！！！')
         return save_path
 
+    # 查询热点榜单
+    def query_ttList(self, content):
+        OutPut.outPut(f'[*]: 正在调用热点榜单查询接口... ...')
+        city = content.split(' ')[-1]
+        try:
+            json_data = requests.get(url=self.TTList_Api.format(self.Key), verify=False).json()
+            alarm_msg = ''
+            if json_data['code'] == 200:
+                data = json_data['result']
+                if 'list' in data and data['list']:
+                    hot_list = data['list']
+                    msg = "今日热点榜单：\n"
+                    for item in hot_list:
+                        msg += f'词条：{item["word"]}，热度指数：{item["hotindex"]}\n'
+                return msg
+            OutPut.outPut(f'[+]: 热点榜单API接口调用成功！！！')
+            if json_data['code'] != 200:
+                return '查询失败, 请重试 ~~~~~~'
+        except Exception as e:
+            msg = f'[-]: 热点榜单API接口出现错误，错误信息：{e}'
+            OutPut.outPut(msg)
+            return msg
+        
     # 天气查询接口
     def query_weather(self, content):
         OutPut.outPut(f'[*]: 正在调用天气查询接口... ...')

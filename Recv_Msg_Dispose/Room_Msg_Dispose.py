@@ -45,6 +45,7 @@ class Room_Msg_Dispose:
         self.Whois_Words = config['Function_Key_Word']['Whois_Word']
         self.Fish_Words = config['Function_Key_Word']['Fish_Word']
         self.Weather_Words = config['Function_Key_Word']['Weather_Word']
+        self.TTLlst_Words = config['Function_Key_Word']['TTLlst_Word']
         self.Dog_Words = config['Function_Key_Word']['Dog_Word']
         self.Constellation_Words = config['Function_Key_Word']['Constellation_Word']
         self.Dream_Words = config['Function_Key_Word']['Dream_Word']
@@ -201,6 +202,11 @@ class Room_Msg_Dispose:
             weather_msg = f'@{self.wcf.get_alias_in_chatroom(roomid=msg.roomid, wxid=msg.sender)}' + self.Ams.query_weather(
                 msg.content.strip())
             self.wcf.send_text(msg=weather_msg, receiver=msg.roomid, aters=msg.sender)
+        # 查询热点
+        elif self.judge_keyword(keyword=self.TTLlst_Words, msg=msg.content.strip(), list_bool=True, split_bool=True):
+            weather_msg = f'@{self.wcf.get_alias_in_chatroom(roomid=msg.roomid, wxid=msg.sender)}' + self.Ams.query_ttList(
+                msg.content.strip())
+            self.wcf.send_text(msg=weather_msg, receiver=msg.roomid, aters=msg.sender)    
         # 舔狗日记
         elif self.judge_keyword(keyword=self.Dog_Words, msg=msg.content.strip(), list_bool=True, equal_bool=True):
             dog_msg = f'@{self.wcf.get_alias_in_chatroom(roomid=msg.roomid, wxid=msg.sender)}' + self.Ams.get_dog()
